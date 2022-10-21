@@ -14,7 +14,7 @@ struct SegTree{
 
 	}
 	void set(int i , int v ,int x , int lx , int rx){
-		if(rx - lx ==0){
+		if(rx - lx ==1){
 			sums[x] = v ;
 			return ;
 
