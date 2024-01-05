@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	cin.tie(0)->ios::sync_with_stdio(false);
+
+	int n, k;
+	cin >> n >> k;
+	vector<int> a(n);
+
+	for(int i=0; i<n; i++) {
+		cin >> a[i];
+	}
+
+	auto find = [&](int val) {
+		int l = -1, r = n;
+		while(r > l + 1) {
+			int m = l + r >> 1;
+			if(a[m] >= val) r = m;
+			else l = m;
+		}
+		return (r == n ? n+1 : r+1);
+	};
+
+	for(int i=0; i<k; i++) {
+		int x; cin >> x;
+		cout << find(x) << '\n';
+	}
+}
